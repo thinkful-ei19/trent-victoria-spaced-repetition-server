@@ -10,7 +10,6 @@ const options = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
   algorithms: ['HS256']
 };
-console.log(options)
 const jwtStrategy = new JwtStrategy(options, (payload, done) => {
   done(null, payload.user);
 });
