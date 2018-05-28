@@ -1,8 +1,10 @@
 'use strict';
 
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const passport = require('passport');
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
@@ -13,6 +15,8 @@ const userRouter = require('./routes/userRouter');
 const authRouter = require('./routes/auth');
 
 const app = express();
+
+app.use(express.json());
 
 app.use(
   morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
@@ -25,6 +29,9 @@ app.use(
     origin: CLIENT_ORIGIN
   })
 );
+
+passport.use(localStrategy);
+passport.use(jwtStrategy);
 
 app.use('/api', userRouter);
 app.use('/api', authRouter);
@@ -41,7 +48,7 @@ function runServer(port = PORT) {
 }
 
 if (require.main === module) {
-//  dbConnect();
+  dbConnect();
   runServer();
 }
 
