@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const { User } = require('./models');
+const { User } = require('../models/user');
 const router = express.Router();
 
 router.post('/users', (req, res) => {
@@ -128,3 +128,5 @@ router.post('/users', (req, res) => {
       res.status(500).json({code: 500, message: 'Internal server error'});
     });
 });
+
+module.exports = router;
