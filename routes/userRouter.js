@@ -6,6 +6,8 @@ const passport = require('passport');
 const { User } = require('../models/user');
 const router = express.Router();
 
+const questions = require('../db/seed/questions');
+
 router.post('/users', (req, res) => {
   const requiredFields = ['username', 'password'];
   const missingField = requiredFields.find(field => !(field in req.body));
@@ -114,7 +116,8 @@ router.post('/users', (req, res) => {
         username,
         password: digest,
         firstName,
-        lastName
+        lastName,
+        questions
       });
     })
     .then(user => {

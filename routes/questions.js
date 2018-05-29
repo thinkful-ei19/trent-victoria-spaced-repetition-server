@@ -15,6 +15,7 @@ const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: tr
 router.get('/questions', jwtAuth, (req,res,next) => {
   return Question.find()
     .then(result => {
+      console.log(result);
       res.json(result);
     });
     
