@@ -18,7 +18,8 @@ router.get('/questions', jwtAuth, (req,res, next) => {
     .then(([result]) => {
     // as of now the answer is sent to the client, down the road make 
     // it not send the answer
-      res.json(result.questions[0]);
+      const { symbol, number  } = result.questions.head.value;
+      res.json({ symbol, number });
     })
     .catch(err => next(err));
 });
