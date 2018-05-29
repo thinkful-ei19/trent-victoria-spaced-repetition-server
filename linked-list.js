@@ -22,6 +22,7 @@ class LinkedList {
   }
 
 
+
   insertFirst(item) {
     this.head = new _Node(item, this.head);
   }
