@@ -7,6 +7,13 @@ const { User } = require('../models/user');
 const router = express.Router();
 
 const questions = require('../db/seed/questions');
+const {LinkedList} = require('../linked-list');
+
+const linkedListQuestions = new LinkedList();
+questions.forEach(item => {
+  linkedListQuestions.insertFirst(item);
+});
+// console.log(linkedListQuestions);
 
 router.post('/users', (req, res) => {
   const requiredFields = ['username', 'password'];
@@ -117,7 +124,7 @@ router.post('/users', (req, res) => {
         password: digest,
         firstName,
         lastName,
-        questions
+        questions: linkedListQuestions
       });
     })
     .then(user => {
