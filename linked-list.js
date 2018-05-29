@@ -12,6 +12,16 @@ class LinkedList {
     this.head = null;
   }
 
+  dequeue() {
+    let tempNode = this.head;
+    while(tempNode.next !== null) {
+      tempNode = tempNode.next;
+    }
+    tempNode.next = new _Node(this.head.value, null);
+    this.head = this.head.next;
+  }
+
+
   insertFirst(item) {
     this.head = new _Node(item, this.head);
   }
