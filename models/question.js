@@ -2,14 +2,14 @@
 
 const mongoose = require('mongoose');
 
-const elementSchema = new mongoose.Schema({
+const questionSchema = new mongoose.Schema({
   name: { type: String },
   symbol: { type: String },
-  atomic weight: { type: Number },
+  atomicWeight: { type: Number },
   number: { type: Number }
 });
 
-elementSchema.set('toObject', {
+questionSchema.set('toObject', {
   transform: function (doc, ret) {
     ret.id = ret._id;
     delete ret._id; 
@@ -17,4 +17,4 @@ elementSchema.set('toObject', {
   }
 });
 
-module.exports = mongoose.model('Element', elementSchema);
+module.exports = mongoose.model('Question', questionSchema);
