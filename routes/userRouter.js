@@ -119,7 +119,8 @@ router.post('/users', (req, res) => {
         firstName,
         lastName,
         questions: questions,
-        head: 0
+        head: 0,
+        points: 0
       });
     })
     .then(user => {
