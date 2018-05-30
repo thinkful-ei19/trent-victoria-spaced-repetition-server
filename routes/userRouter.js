@@ -118,7 +118,8 @@ router.post('/users', (req, res) => {
         password: digest,
         firstName,
         lastName,
-        questions: questions
+        questions: questions,
+        head: 0
       });
     })
     .then(user => {
