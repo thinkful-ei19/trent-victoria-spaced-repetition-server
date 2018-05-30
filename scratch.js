@@ -9,6 +9,7 @@ questions: [
         "atomic weight" : 1.008,
         "number" : 1,
         "next": 1,
+        "m" : 1
     }, 
     {
         "name" : "Helium",
