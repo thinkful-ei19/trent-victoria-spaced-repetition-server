@@ -7,7 +7,7 @@ const {User} = require('../models/user');
 
 const seedUsers = require('../db/seed/users');
 
-// seed production db ''
+// seed production db 'mongodb://dev:dev@ds237700.mlab.com:37700/spaced-repetition-trent-victoria'
 mongoose.connect(DATABASE_URL)
   .then(() => mongoose.connection.db.dropDatabase())
   .then(() => {

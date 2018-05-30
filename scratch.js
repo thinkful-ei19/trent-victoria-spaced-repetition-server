@@ -1,21 +1,21 @@
 // head is a single value 
 username:
 passwrd:
-head: 2,
+head: 1,
 questions: [ 
     {
         "name" : "Hydrogen",
         "symbol" : "H",
         "atomic weight" : 1.008,
         "number" : 1,
-        "next": null,
+        "next": 1,
     }, 
     {
         "name" : "Helium",
         "symbol" : "He",
         "atomic weight" : 4.003,
         "number" : 2,
-        "next" : 2
+        "next" : 0
     }, 
     {
         "name" : "Lithium",
@@ -71,6 +71,6 @@ questions: [
         "symbol" : "Ne",
         "atomic weight" : 20.18,
         "number" : 10,
-        "next" : 0
+        "next" : null
     }
 ],

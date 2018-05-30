@@ -69,24 +69,29 @@ router.get('/questions', jwtAuth, (req,res, next) => {
 router.put('/questions', jwtAuth, (req,res, next) => {
   const {username} = req.user;
   // trim guess 
-  const userGuess = req.body.name.toLowerCase();
+  const userGuess = req.body.name.toLowerCase().trim();
   let answer;
   let isCorrect;
   return User.find({username})
     .then(([result]) => {
       const head = result.head;
       let currentNode = result.questions[head];
+      let nextNode = result.questions[currentNode.next].next;
       answer = currentNode.name.toLowerCase();
       if (answer === userGuess) {
         isCorrect = true;
+        return User.updateOne({username, 'questions.next' : null}, {$set: { 'questions.$.next': head}})
+          .then(() => {
+            return User.updateOne({username, 'questions.next' : currentNode.next}, {$set: { head: currentNode.next, 'questions.$.next': null}});
+          });
       } else {
         isCorrect = false;
+        return User.updateOne({username, 'questions.next' : result.questions[currentNode.next].next}, {$set: { head: currentNode.next, 'questions.$.next': head}})
+          .then(() => {
+            return User.updateOne({username, 'questions.next' : currentNode.next}, {$set: { 'questions.$.next': nextNode}});
+          });
       }
-      return User.updateOne({username, "questions.next" : null}, {$set: { "questions.$.next": head}}).then(() => {
-        return User.updateOne({username, "questions.next" : currentNode.next}, {$set: { head: currentNode.next, "questions.$.next": null}});
-      });
-    })
-    
+    }) 
     .then(() => {
       return res.json({answer, isCorrect}); 
     })
