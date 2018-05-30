@@ -68,13 +68,14 @@ router.get('/questions', jwtAuth, (req,res, next) => {
 // Simple Algorithm
 router.put('/questions', jwtAuth, (req,res, next) => {
   const {username} = req.user;
-  // trim guess 
   const userGuess = req.body.name.toLowerCase().trim();
   let answer;
   let isCorrect;
+  let points;
   return User.find({username})
     .then(([result]) => {
       const head = result.head;
+      points = result.points;
       let currentNode = result.questions[head];
       let nextNode = result.questions[currentNode.next].next;
       answer = currentNode.name.toLowerCase();
@@ -82,7 +83,7 @@ router.put('/questions', jwtAuth, (req,res, next) => {
         isCorrect = true;
         return User.updateOne({username, 'questions.next' : null}, {$set: { 'questions.$.next': head}})
           .then(() => {
-            return User.updateOne({username, 'questions.next' : currentNode.next}, {$set: { head: currentNode.next, 'questions.$.next': null}});
+            return User.updateOne({username, 'questions.next' : currentNode.next}, {$set: { points: points + 10, head: currentNode.next, 'questions.$.next': null}});
           });
       } else {
         isCorrect = false;
@@ -93,7 +94,7 @@ router.put('/questions', jwtAuth, (req,res, next) => {
       }
     }) 
     .then(() => {
-      return res.json({answer, isCorrect}); 
+      return res.json({answer, isCorrect, points}); 
     })
     .catch(err => next(err));
 });
