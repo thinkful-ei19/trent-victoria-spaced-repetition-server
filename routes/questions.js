@@ -67,23 +67,26 @@ router.get('/questions', jwtAuth, (req,res, next) => {
 
 // Simple Algorithm
 router.put('/questions', jwtAuth, (req,res, next) => {
-  const {username} = req.user; 
+  const {username} = req.user;
+  // trim guess 
   const userGuess = req.body.name.toLowerCase();
   let answer;
   let isCorrect;
   return User.find({username})
     .then(([result]) => {
-      answer = result.questions[0].name.toLowerCase();
+      const head = result.head;
+      let currentNode = result.questions[head];
+      answer = currentNode.name.toLowerCase();
       if (answer === userGuess) {
         isCorrect = true;
       } else {
         isCorrect = false;
       }
-      const linkedList = convertArrayQuestions(result.questions);
-      linkedList.dequeue();
-      const linkedListArray = convertListToArray(linkedList);
-      return User.updateOne({username}, {$set: {questions: linkedListArray}});
+      return User.updateOne({username, "questions.next" : null}, {$set: { "questions.$.next": head}}).then(() => {
+        return User.updateOne({username, "questions.next" : currentNode.next}, {$set: { head: currentNode.next, "questions.$.next": null}});
+      });
     })
+    
     .then(() => {
       return res.json({answer, isCorrect}); 
     })
