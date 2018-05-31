@@ -1,77 +1,90 @@
 // head is a single value 
+
+
 username:
 passwrd:
 head: 1,
+points: ,
+// change head value to 1
 questions: [ 
     {
         "name" : "Hydrogen",
         "symbol" : "H",
         "atomic weight" : 1.008,
         "number" : 1,
-        "next": 1,
-        "m" : 1
+        "next": 3,
+        "m" : 2
     }, 
     {
         "name" : "Helium",
         "symbol" : "He",
         "atomic weight" : 4.003,
         "number" : 2,
-        "next" : 0
+        "next" : 2,
+        "m" : 2
     }, 
     {
         "name" : "Lithium",
         "symbol" : "Li",
         "atomic weight" : 6.941,
         "number" : 3,
-        "next" : 3
+        "next" : 0,
+        "m" : 1
     }, 
     {
         "name" : "Beryllium",
         "symbol" : "Be",
         "atomic weight" : 9.012,
         "number" : 4,
-        "next" : 4
+        "next" : 1,
+        "m" : 1
     }, 
     {
         "name" : "Boron",
         "symbol" : "B",
         "atomic weight" : 10.811,
         "number" : 5,
-        "next" : 5
+        "next" : 5,
+        "m" : 1
     }, 
     {
         "name" : "Carbon",
         "symbol" : "C",
         "atomic weight" : 12.011,
         "number" : 6,
-        "next" : 6
+        "next" : 6,
+        "m" : 1
     }, 
     {
         "name" : "Nitrogen",
         "symbol" : "N",
         "atomic weight" : 14.007,
         "number" : 7,
-        "next" : 7
+        "next" : 7,
+        "m" : 1
     }, 
     {
         "name" : "Oxygen",
         "symbol" : "O",
         "atomic weight" : 15.999,
         "number" : 8,
-        "next" : 8
+        "next" : 8,
+        "m" : 1
     }, 
     {
         "name" : "Fluorine",
         "symbol" : "F",
         "atomic weight" : 18.998,
         "number" : 9,
-        "next" : 9
+        "next" : 9,
+        "m" : 1
     }, 
     {
         "name" : "Neon",
         "symbol" : "Ne",
         "atomic weight" : 20.18,
         "number" : 10,
-        "next" : null
+        "next" : null,
+        "m" : 1
     }
 ],

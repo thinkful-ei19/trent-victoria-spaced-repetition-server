@@ -55,28 +55,37 @@ router.put('/questions', jwtAuth, (req,res, next) => {
     .then(([result]) => {
       const head = result.head;
       points = result.points;
+      let headNode = result.questions[head];
       let currentNode = result.questions[head];
-      let nextNode = result.questions[currentNode.next].next;
-      answer = currentNode.name.toLowerCase();
+      let mValue = headNode.m;
+      answer = headNode.name.toLowerCase();
       if (answer === userGuess) {
         isCorrect = true;
         points += 10;
-        return User.updateOne({username, 'questions.next' : null}, {$set: { 'questions.$.next': head}})
-          .then(() => {
-            return User.updateOne({username, 'questions.next' : currentNode.next}, {$set: { points: points, head: currentNode.next, 'questions.$.next': null}});
-          });
+        mValue = mValue*2;
       } else {
         isCorrect = false;
-        return User.updateOne({username, 'questions.next' : result.questions[currentNode.next].next}, {$set: { head: currentNode.next, 'questions.$.next': head}})
+        mValue = 1;
+      }
+      if (mValue > result.questions.length - 1) {
+        return User.updateOne({username, 'questions.next' : null}, {$set: { 'questions.$.next': head}})
           .then(() => {
-            return User.updateOne({username, 'questions.next' : currentNode.next}, {$set: { 'questions.$.next': nextNode}});
+            return User.updateOne({username, 'questions.next' : headNode.next}, {$set: { points: points, head: headNode.next, 'questions.$.next': null,'questions.$.m' : mValue}});
           });
       }
+      for (let i = 0; i < mValue; i++) {
+        currentNode = result.questions[currentNode.next];
+      }
+      return User.updateOne({username, 'questions.next' : currentNode.next}, {$set: { points: points, head: headNode.next, 'questions.$.next': head}})
+        .then(() => {
+          return User.updateOne({username, 'questions.next' : headNode.next}, {$set: { 'questions.$.next': currentNode.next, 'questions.$.m' : mValue}});
+        });
     }) 
     .then(() => {
       return res.json({answer, isCorrect, points}); 
     })
     .catch(err => next(err));
 });
+
 
 module.exports = router;
