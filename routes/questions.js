@@ -37,8 +37,8 @@ router.get('/questions', jwtAuth, (req,res, next) => {
   return User.find({username})
     .then(([result]) => {
       const head = result.head;
-      const { symbol, number  } = result.questions[head];
-      res.json({ symbol, number });
+      const { symbol, number, atomicWeight  } = result.questions[head];
+      res.json({ symbol, number, atomicWeight });
     })
     .catch(err => next(err));
 });
