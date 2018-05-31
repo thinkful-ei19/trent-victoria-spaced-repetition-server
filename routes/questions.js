@@ -13,32 +13,13 @@ const router = express.Router();
 
 const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: true });
 
-function convertArrayQuestions(arr) {
-  const linkedListQuestions = new LinkedList();
-  arr.forEach(item => {
-    linkedListQuestions.insertFirst(item);
-  });
-  return linkedListQuestions;
-}
-
-function convertListToArray(list) {
-  const arr = [];
-  let currentNode = list.head;
-  while (currentNode.next !== null) {
-    arr.push(currentNode.value);
-    currentNode = currentNode.next;
-  }
-  arr.push(currentNode.value);
-  return arr;
-}
-
 router.get('/questions', jwtAuth, (req,res, next) => {
   const {username} = req.user; 
   return User.find({username})
     .then(([result]) => {
-      const head = result.head;
-      const { symbol, number, atomicWeight  } = result.questions[head];
-      res.json({ symbol, number, atomicWeight });
+      const {head, points} = result;
+      const { symbol, number, atomicWeight, correct  } = result.questions[head];
+      res.json({ symbol, number, atomicWeight, points, correct });
     })
     .catch(err => next(err));
 });
@@ -102,5 +83,23 @@ router.put('/questions', jwtAuth, (req,res, next) => {
     .catch(err => next(err));
 });
 
+
+router.get('/stats', jwtAuth, (req,res, next) => {
+  const {username} = req.user; 
+  return User.find({username})
+    .then(([result]) => {
+      const statsArr = result.questions.map(question => {
+        const {name, symbol, correct, incorrect} = question;
+        return {
+          name,
+          symbol,
+          correct,
+          incorrect
+        };
+      });
+      res.json(statsArr);
+    })
+    .catch(err => next(err));
+});
 
 module.exports = router;
