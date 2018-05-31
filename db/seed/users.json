@@ -14,7 +14,9 @@
             "atomicWeight" : 1.008,
             "number" : 1,
             "next": 1,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Helium",
@@ -22,7 +24,9 @@
             "atomicWeight" : 4.003,
             "number" : 2,
             "next" : 2,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Lithium",
@@ -30,7 +34,9 @@
             "atomicWeight" : 6.941,
             "number" : 3,
             "next" : 3,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Beryllium",
@@ -38,7 +44,9 @@
             "atomicWeight" : 9.012,
             "number" : 4,
             "next" : 4,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Boron",
@@ -46,7 +54,9 @@
             "atomicWeight" : 10.811,
             "number" : 5,
             "next" : 5,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Carbon",
@@ -54,7 +64,9 @@
             "atomicWeight" : 12.011,
             "number" : 6,
             "next" : 6,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Nitrogen",
@@ -62,7 +74,9 @@
             "atomicWeight" : 14.007,
             "number" : 7,
             "next" : 7,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Oxygen",
@@ -70,7 +84,9 @@
             "atomicWeight" : 15.999,
             "number" : 8,
             "next" : 8,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Fluorine",
@@ -78,7 +94,9 @@
             "atomicWeight" : 18.998,
             "number" : 9,
             "next" : 9,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Neon",
@@ -86,7 +104,9 @@
             "atomicWeight" : 20.18,
             "number" : 10,
             "next" : null,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }
       ]
    },
@@ -105,7 +125,9 @@
             "atomicWeight" : 1.008,
             "number" : 1,
             "next": 1,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Helium",
@@ -113,7 +135,9 @@
             "atomicWeight" : 4.003,
             "number" : 2,
             "next" : 2,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Lithium",
@@ -121,7 +145,9 @@
             "atomicWeight" : 6.941,
             "number" : 3,
             "next" : 3,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Beryllium",
@@ -129,7 +155,9 @@
             "atomicWeight" : 9.012,
             "number" : 4,
             "next" : 4,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Boron",
@@ -137,7 +165,9 @@
             "atomicWeight" : 10.811,
             "number" : 5,
             "next" : 5,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Carbon",
@@ -145,7 +175,9 @@
             "atomicWeight" : 12.011,
             "number" : 6,
             "next" : 6,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Nitrogen",
@@ -153,7 +185,9 @@
             "atomicWeight" : 14.007,
             "number" : 7,
             "next" : 7,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Oxygen",
@@ -161,7 +195,9 @@
             "atomicWeight" : 15.999,
             "number" : 8,
             "next" : 8,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Fluorine",
@@ -169,7 +205,9 @@
             "atomicWeight" : 18.998,
             "number" : 9,
             "next" : 9,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Neon",
@@ -177,7 +215,9 @@
             "atomicWeight" : 20.18,
             "number" : 10,
             "next" : null,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }
       ]
    },
@@ -196,7 +236,9 @@
             "atomicWeight" : 1.008,
             "number" : 1,
             "next": 1,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Helium",
@@ -204,7 +246,9 @@
             "atomicWeight" : 4.003,
             "number" : 2,
             "next" : 2,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Lithium",
@@ -212,7 +256,9 @@
             "atomicWeight" : 6.941,
             "number" : 3,
             "next" : 3,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Beryllium",
@@ -220,7 +266,9 @@
             "atomicWeight" : 9.012,
             "number" : 4,
             "next" : 4,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Boron",
@@ -228,7 +276,9 @@
             "atomicWeight" : 10.811,
             "number" : 5,
             "next" : 5,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Carbon",
@@ -236,7 +286,9 @@
             "atomicWeight" : 12.011,
             "number" : 6,
             "next" : 6,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Nitrogen",
@@ -244,7 +296,9 @@
             "atomicWeight" : 14.007,
             "number" : 7,
             "next" : 7,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Oxygen",
@@ -252,7 +306,9 @@
             "atomicWeight" : 15.999,
             "number" : 8,
             "next" : 8,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Fluorine",
@@ -260,7 +316,9 @@
             "atomicWeight" : 18.998,
             "number" : 9,
             "next" : 9,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }, 
         {
             "name" : "Neon",
@@ -268,7 +326,9 @@
             "atomicWeight" : 20.18,
             "number" : 10,
             "next" : null,
-            "m" : 1
+            "m" : 1,
+            "correct": 0,
+            "incorrect":0
         }
       ]
    }
