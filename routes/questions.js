@@ -51,6 +51,8 @@ router.put('/questions', jwtAuth, (req,res, next) => {
   let answer;
   let isCorrect;
   let points;
+  let correct;
+  let incorrect;
   return User.find({username})
     .then(([result]) => {
       const head = result.head;
@@ -58,19 +60,28 @@ router.put('/questions', jwtAuth, (req,res, next) => {
       let headNode = result.questions[head];
       let currentNode = result.questions[head];
       let mValue = headNode.m;
+      correct = headNode.correct;
+      incorrect = headNode.incorrect;
       answer = headNode.name.toLowerCase();
       if (answer === userGuess) {
         isCorrect = true;
         points += 10;
         mValue = mValue*2;
+        correct += 1;
       } else {
         isCorrect = false;
         mValue = 1;
+        incorrect += 1;
       }
       if (mValue > result.questions.length - 1) {
         return User.updateOne({username, 'questions.next' : null}, {$set: { 'questions.$.next': head}})
           .then(() => {
-            return User.updateOne({username, 'questions.next' : headNode.next}, {$set: { points: points, head: headNode.next, 'questions.$.next': null,'questions.$.m' : mValue}});
+            if (isCorrect) {
+              return User.updateOne({username, 'questions.next' : headNode.next}, {$set: { points: points, head: headNode.next, 'questions.$.next': null,'questions.$.m' : mValue, 'questions.$.correct' : correct}});
+            } else {
+              return User.updateOne({username, 'questions.next' : headNode.next}, {$set: { points: points, head: headNode.next, 'questions.$.next': null,'questions.$.m' : mValue, 'questions.$.incorrect' : incorrect}});
+            }
+            
           });
       }
       for (let i = 0; i < mValue; i++) {
@@ -78,11 +89,15 @@ router.put('/questions', jwtAuth, (req,res, next) => {
       }
       return User.updateOne({username, 'questions.next' : currentNode.next}, {$set: { points: points, head: headNode.next, 'questions.$.next': head}})
         .then(() => {
-          return User.updateOne({username, 'questions.next' : headNode.next}, {$set: { 'questions.$.next': currentNode.next, 'questions.$.m' : mValue}});
+          if (isCorrect) {
+            return User.updateOne({username, 'questions.next' : headNode.next}, {$set: { 'questions.$.next': currentNode.next, 'questions.$.m' : mValue, 'questions.$.correct' : correct}});
+          } else {
+            return User.updateOne({username, 'questions.next' : headNode.next}, {$set: { 'questions.$.next': currentNode.next, 'questions.$.m' : mValue, 'questions.$.incorrect' : incorrect}});
+          }
         });
     }) 
     .then(() => {
-      return res.json({answer, isCorrect, points}); 
+      return res.json({answer, isCorrect, points, correct}); 
     })
     .catch(err => next(err));
 });
