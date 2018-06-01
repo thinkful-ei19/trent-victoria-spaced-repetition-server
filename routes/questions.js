@@ -124,7 +124,7 @@ router.put('/reserve', jwtAuth, (req,res, next) => {
         });
     })
     .then(() => {
-      return res.json(nextQuestion); 
+      return res.status(201).json(nextQuestion); 
     })
     .catch(err => next(err));
 });
