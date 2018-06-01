@@ -11,7 +11,9 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
   questions: {type: Array},
   head: {type: Number},
-  points: {type: Number}
+  points: {type: Number},
+  inARow: {type: Number},
+  nextReserve: {type: Number}
 });
 
 UserSchema.methods.apiRepr = function () {

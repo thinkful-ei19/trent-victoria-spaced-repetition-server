@@ -6,6 +6,8 @@
     "username": "user0",
     "password": "$2a$10$kcIpLuR136/ns2gmYjMOpOfEbU8AqYsLe/cphHw3FGUJZQemOZsUW",
     "head" : 0,
+    "inARow": 0,
+    "nextReserve":0,
     "points" : 0,
     "questions" : [
         {
@@ -117,6 +119,8 @@
      "username": "user1",
      "password": "$2a$10$kcIpLuR136/ns2gmYjMOpOfEbU8AqYsLe/cphHw3FGUJZQemOZsUW",
      "head" : 0,
+     "inARow": 0,
+     "nextReserve":0,
      "points" : 0,
      "questions" : [
         {
@@ -228,6 +232,8 @@
      "username": "user2",
      "password": "$2a$10$kcIpLuR136/ns2gmYjMOpOfEbU8AqYsLe/cphHw3FGUJZQemOZsUW",
      "head" : 0,
+     "inARow": 0,
+     "nextReserve":0,
      "points" : 0,
      "questions" : [
         {
