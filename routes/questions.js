@@ -116,8 +116,6 @@ router.put('/reserve', jwtAuth, (req,res, next) => {
       return Question.find()
         .then(result => {
           nextQuestion = convertNewQuestionObject(result[nextReserve]);
-        })
-        .then(() => {
           nextReserve += 1;
           return User.updateOne({username, 'questions.next' : null}, {$set: { nextReserve: nextReserve, 'questions.$.next': newLastQuestion}});
         })
