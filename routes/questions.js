@@ -3,7 +3,6 @@
 const express = require('express');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const {LinkedList} = require('../linked-list');
 
 
 const {User} = require('../models/user');
